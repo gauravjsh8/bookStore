@@ -3,7 +3,7 @@ import { CiSearch } from "react-icons/ci";
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light ">
+    <nav className="navbar navbar-expand-lg  navbar-light bg-light  fixed-top">
       <div className="container">
         <a className="navbar-brand fw-bold" href="#">
           BookStore

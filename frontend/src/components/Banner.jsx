@@ -3,7 +3,7 @@ import Book from "../../public/book.jpg";
 
 const Banner = () => {
   return (
-    <div className="container">
+    <div className="container mt-5">
       <div className="row">
         <div className="col-12 col-lg-6 mt-5">
           <h3>
@@ -17,8 +17,8 @@ const Banner = () => {
             Consequatur officiis tempore eaque quidem. Inventore repellat
             eligendi obcaecati velit laborum. Deleniti rem sapiente, amet modi
           </p>
-          <div class="mb-3">
-            <label htmlFor="exampleInputEmail1" class="form-label"></label>
+          <div className="mb-3">
+            <label htmlFor="exampleInputEmail1" className="form-label"></label>
             <input
               type="email"
               className="form-control"
