@@ -3,7 +3,7 @@ import React from "react";
 const Footer = () => {
   return (
     <>
-      <footer className="bg-light text-center text-lg-start mt-5">
+      <footer className="bg-dark text-center text-white text-lg-start mt-5">
         <div className="container p-4">
           <div className="row">
             <div className="col-lg-6 col-md-12 mb-4 mb-md-0">
@@ -16,24 +16,24 @@ const Footer = () => {
 
             <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
               <h5 className="text-uppercase">Links</h5>
-              <ul className="list-unstyled mb-0">
+              <ul className="list-unstyled mb-0 ">
                 <li>
-                  <a href="#" className="text-dark">
+                  <a href="#" className="text-white">
                     Facebook
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-dark">
+                  <a href="#" className="text-white">
                     Instagram
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-dark">
+                  <a href="#" className="text-white">
                     Tiktok
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-dark">
+                  <a href="#" className="text-white">
                     Twitter
                   </a>
                 </li>
