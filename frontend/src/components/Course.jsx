@@ -1,6 +1,7 @@
 import Slider from "react-slick";
 import lists from "../../public/list.json";
 import Cards from "./Cards";
+import { Link } from "react-router-dom";
 
 const Course = () => {
   return (
@@ -26,7 +27,9 @@ const Course = () => {
           nemo maiores quidem adipisci sit.
         </p>
         <div className="d-flex justify-content-center mt-4">
-          <button className="btn btn-info rounded-pill">Get Back</button>
+          <Link to="/">
+            <button className="btn btn-info rounded-pill">Get Back</button>
+          </Link>
         </div>
       </div>
       <div className="row mt-5">

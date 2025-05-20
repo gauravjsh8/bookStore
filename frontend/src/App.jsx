@@ -4,6 +4,7 @@ import "bootstrap/dist/js/bootstrap.bundle.js";
 import Home from "./home/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Courses from "./courses/Courses";
+import Login from "./components/Login";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/courses" element={<Courses />}></Route>
+        <Route path="/login" element={<Login />}></Route>
       </Routes>
     </BrowserRouter>
   );
