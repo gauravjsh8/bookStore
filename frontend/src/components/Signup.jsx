@@ -46,7 +46,7 @@ const Signup = () => {
                   </span>
                 )}
                 <input
-                  type="text"
+                  type="email"
                   className="form-control mb-2"
                   placeholder="Email"
                   {...register("email", { required: true })}
