@@ -1,6 +1,7 @@
 import express, { urlencoded } from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
+import cors from "cors";
 
 import bookRoutes from "./routes/bookRoutes.js";
 dotenv.config();
@@ -12,7 +13,7 @@ const MONGO_URI = process.env.MONGO_URI;
 app.get("/", (req, res) => {
   res.send("Hello World");
 });
-
+app.use(cors());
 app.use(express.json());
 app.use(urlencoded({ extended: true }));
 

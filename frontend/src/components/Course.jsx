@@ -1,9 +1,25 @@
-import Slider from "react-slick";
-import lists from "../../public/list.json";
 import Cards from "./Cards";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const Course = () => {
+  const [books, setBooks] = useState([]);
+
+  useEffect(() => {
+    const getBooks = async () => {
+      try {
+        const response = await axios.get("http://localhost:3000/api/books");
+        const data = response.data;
+        console.log("Response", response);
+        console.log("Data", data);
+        setBooks(data.Books);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getBooks();
+  }, []);
   return (
     <div className="container" style={{ marginTop: "90px" }}>
       <div>
@@ -33,9 +49,9 @@ const Course = () => {
         </div>
       </div>
       <div className="row mt-5">
-        {lists.map((list) => (
-          <div key={list.id} className="col-md-4 mb-4">
-            <Cards item={list} />
+        {books.map((book) => (
+          <div key={book._id} className="col-md-4 mb-4">
+            <Cards item={book} />
           </div>
         ))}
       </div>
