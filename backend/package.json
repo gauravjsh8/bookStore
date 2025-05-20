@@ -1,0 +1,29 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gauravjsh8/bookStore.git"
+  },
+  "keywords": [
+    "Gaurav"
+  ],
+  "author": "Gaurav",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gauravjsh8/bookStore/issues"
+  },
+  "homepage": "https://github.com/gauravjsh8/bookStore#readme",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10"
+  }
+}
