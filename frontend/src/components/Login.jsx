@@ -1,7 +1,14 @@
-import React from "react";
 import Signup from "./Signup";
+import { useForm } from "react-hook-form";
 
 const Login = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => console.log(data);
+
   return (
     <>
       <div>
@@ -16,60 +23,76 @@ const Login = () => {
             className="modal-dialog modal-dialog-centered"
             style={{ maxWidth: "400px", margin: "auto" }}
           >
-            <div className="modal-content" style={{ width: "80%" }}>
-              <div className="modal-header">
-                <h1 className="modal-title fs-5" id="exampleModalLabel">
-                  Login
-                </h1>
-                <button
-                  type="button"
-                  className="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <div className="modal-body">
-                <input
-                  type="text"
-                  className="form-control mb-2"
-                  placeholder="Email"
-                />
-                <input
-                  type="password"
-                  className="form-control mb-2"
-                  placeholder="Password"
-                />
-              </div>
-              <div className="modal-footer d-flex-column align-items-center justify-content-between">
-                <div>
-                  <p className="mt-1">
-                    Not Registered? {""}
-                    <span>
-                      <a
-                        href="#"
-                        className="text-decoration-none"
-                        data-bs-toggle="modal"
-                        data-bs-target="#signUpModal"
-                        data-bs-dismiss="modal"
-                      >
-                        Signup Here
-                      </a>
-                    </span>
-                  </p>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              {" "}
+              <div className="modal-content" style={{ width: "80%" }}>
+                <div className="modal-header bg-dark text-white">
+                  <h1 className="modal-title fs-5" id="exampleModalLabel">
+                    Login
+                  </h1>
+                  <button
+                    type="button"
+                    className="btn-close btn-close-white"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
                 </div>
+                <div className="modal-body">
+                  <input
+                    type="text"
+                    className="form-control mb-2"
+                    placeholder="Email"
+                    {...register("email", { required: true })}
+                  />
+                  {errors.email && (
+                    <span className="text-danger" style={{ fontSize: "10px" }}>
+                      This field is required
+                    </span>
+                  )}
 
-                <button
-                  type="button"
-                  className="btn btn-primary p-1"
-                  style={{
-                    width: "100%",
-                    backgroundColor: "green",
-                  }}
-                >
-                  Login
-                </button>
+                  <input
+                    type="password"
+                    className="form-control mb-2"
+                    placeholder="Password"
+                    {...register("password", { required: true })}
+                  />
+                  {errors.password && (
+                    <span className="text-danger" style={{ fontSize: "10px" }}>
+                      This field is required
+                    </span>
+                  )}
+                </div>
+                <div className="modal-footer d-flex-column align-items-center justify-content-between">
+                  <div>
+                    <p className="mt-1">
+                      Not Registered? {""}
+                      <span>
+                        <a
+                          href="#"
+                          className="text-decoration-none"
+                          data-bs-toggle="modal"
+                          data-bs-target="#signUpModal"
+                          data-bs-dismiss="modal"
+                        >
+                          Signup Here
+                        </a>
+                      </span>
+                    </p>
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="btn btn-primary p-1"
+                    style={{
+                      width: "100%",
+                      backgroundColor: "green",
+                    }}
+                  >
+                    Login
+                  </button>
+                </div>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </div>
