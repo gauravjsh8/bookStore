@@ -1,13 +1,38 @@
+import axios from "axios";
 import Signup from "./Signup";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
+import { useAuth } from "../context/AuthProvider";
 
 const Login = () => {
+  const [authUser, setAuthUser] = useAuth();
+  console.log("Authuser", authUser);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    const userInfo = {
+      email: data.email,
+      password: data.password,
+    };
+    await axios
+      .post("http://localhost:3000/api/users/login", userInfo)
+      .then((res) => {
+        console.log(res);
+        if (res.data) {
+          toast.success("Logged in successfully");
+          setTimeout(() => {
+            window.location.reload();
+          }, 2000);
+        }
+        localStorage.setItem("Users", JSON.stringify(res.data.Users));
+      })
+      .catch((error) => {
+        toast.error(error.response?.data?.message);
+      });
+  };
 
   return (
     <>

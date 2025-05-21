@@ -1,4 +1,6 @@
 import Book from "../model/bookModel.js";
+import User from "../model/userModel.js";
+import bcrypt from "bcrypt";
 
 export const getBooks = async (req, res) => {
   try {

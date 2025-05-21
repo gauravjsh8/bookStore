@@ -1,9 +1,12 @@
 import React from "react";
 import { CiSearch } from "react-icons/ci";
-import { Link } from "react-router-dom";
 import Login from "./Login";
+import { useAuth } from "../context/AuthProvider";
+import Logout from "./Logout";
 
 const Navbar = () => {
+  const [authUser, setAuthUser] = useAuth();
+  console.log("Authuser", authUser);
   return (
     <>
       <nav className="navbar navbar-expand-lg  navbar-light bg-light  fixed-top">
@@ -58,15 +61,18 @@ const Navbar = () => {
                 <CiSearch />
               </button>
             </form>
-
-            <button
-              className="btn btn-primary"
-              type="button"
-              data-bs-toggle="modal"
-              data-bs-target="#loginModal"
-            >
-              Sign In
-            </button>
+            {authUser ? (
+              <Logout />
+            ) : (
+              <button
+                className="btn btn-primary"
+                type="button"
+                data-bs-toggle="modal"
+                data-bs-target="#loginModal"
+              >
+                Sign In
+              </button>
+            )}
           </div>
         </div>
       </nav>

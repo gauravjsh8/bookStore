@@ -11,8 +11,7 @@ const Course = () => {
       try {
         const response = await axios.get("http://localhost:3000/api/books");
         const data = response.data;
-        console.log("Response", response);
-        console.log("Data", data);
+
         setBooks(data.Books);
       } catch (error) {
         console.log(error);

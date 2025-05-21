@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 
 import bookRoutes from "./routes/bookRoutes.js";
+import userRouter from "./routes/userRoutes.js";
 dotenv.config();
 
 const app = express();
@@ -18,6 +19,7 @@ app.use(express.json());
 app.use(urlencoded({ extended: true }));
 
 app.use("/api/books", bookRoutes);
+app.use("/api/users", userRouter);
 const dbConnect = () => {
   try {
     mongoose.connect(MONGO_URI);
